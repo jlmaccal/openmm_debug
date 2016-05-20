@@ -1,0 +1,61 @@
+==16223== NVPROF is profiling process 16223, command: python test_perf.py
+#"Step"	"Potential Energy (kJ/mole)"	"Speed (ns/day)"
+1000	-988532.543001	0
+2000	-973408.146649	16.2
+3000	-968657.072267	16.1
+4000	-967329.501961	16.1
+5000	-967268.160932	16
+6000	-968273.14008	16
+7000	-969104.429238	14.5
+8000	-970558.580627	13.1
+9000	-972253.823978	13.1
+^L10000	-973225.465	13
+==16223== Profiling application: python test_perf.py
+==16223== Profiling result:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 70.00%  29.4057s     10810  2.7202ms  1.9627ms  157.72ms  computeNonbonded
+ 10.75%  4.51517s     10810  417.68us  2.1440us  3.9512ms  findBlocksWithInteractions
+  5.23%  2.19886s     10810  203.41us  202.24us  233.28us  sortShortList
+  3.35%  1.40840s     10000  140.84us  135.78us  164.42us  applySettleToPositions
+  1.62%  680.32ms       400  1.7008ms  1.6897ms  1.9127ms  scalePositions
+  1.49%  625.16ms     10000  62.516us  60.385us  68.544us  integrateLangevinPart1
+  1.46%  613.14ms     10000  61.314us  59.745us  68.993us  integrateLangevinPart2
+  1.42%  595.88ms     10810  55.123us  54.336us  62.881us  computeBondedForces
+  1.04%  435.60ms      1803  241.60us  1.7280us  773.26us  [CUDA memcpy DtoH]
+  0.63%  264.65ms     10000  26.464us  25.408us  30.496us  removeCenterOfMassMomentum
+  0.62%  258.52ms     10810  23.914us  23.296us  27.105us  findBlockBounds
+  0.57%  240.12ms      2500  96.048us  95.521us  109.99us  generateRandomNumbers
+  0.53%  221.18ms     10000  22.117us  21.344us  25.664us  calcCenterOfMassMomentum
+  0.43%  179.58ms     10000  17.957us  16.417us  21.952us  applyShakeToPositions
+  0.36%  149.24ms     10810  13.805us  13.216us  16.032us  sortBoxData
+  0.18%  73.860ms     10810  6.8320us  6.5600us  8.0960us  clearTwoBuffers
+  0.16%  68.101ms       810  84.075us  80.737us  98.209us  applySettleToVelocities
+  0.08%  33.429ms       810  41.269us  39.872us  44.480us  timeShiftVelocities
+  0.05%  22.120ms       191  115.81us     704ns  297.51us  [CUDA memcpy HtoD]
+  0.03%  13.077ms       810  16.144us  15.904us  18.400us  applyShakeToVelocities
+  0.02%  7.4491ms      2322  3.2080us  2.9440us  3.7440us  [CUDA memcpy DtoD]
+
+==16223== API calls:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 94.69%  40.5148s      1793  22.596ms  53.534us  3.28398s  cuMemcpyDtoH
+  4.50%  1.92680s    141000  13.665us  4.9610us  705.62us  cuLaunchKernel
+  0.24%  102.16ms         1  102.16ms  102.16ms  102.16ms  cuCtxCreate
+  0.19%  79.429ms        10  7.9429ms  238.44us  75.011ms  cuModuleLoad
+  0.17%  70.633ms      1620  43.600us  14.686us  125.35us  cuMemcpyDtoDAsync
+  0.12%  50.127ms       191  262.44us  7.1210us  2.4098ms  cuMemcpyHtoD
+  0.05%  21.812ms       702  31.070us  11.599us  97.299us  cuMemcpyDtoD
+  0.04%  15.472ms     31541     490ns     103ns  31.648us  cuCtxSetCurrent
+  0.01%  2.2284ms        52  42.853us  3.7140us  178.10us  cuMemAlloc
+  0.00%  1.2518ms        52  24.072us  3.3150us  112.13us  cuMemFree
+  0.00%  607.38us         1  607.38us  607.38us  607.38us  cuMemHostAlloc
+  0.00%  347.07us         1  347.07us  347.07us  347.07us  cuMemFreeHost
+  0.00%  209.13us        10  20.912us  8.4290us  23.576us  cuMemcpyDtoHAsync
+  0.00%  101.42us         6  16.904us     131ns  99.618us  cuDeviceGetAttribute
+  0.00%  39.867us         1  39.867us  39.867us  39.867us  cuDeviceGetName
+  0.00%  14.222us        36     395ns     132ns  1.7300us  cuModuleGetFunction
+  0.00%  2.1630us         3     721ns     143ns  1.6570us  cuDeviceGetCount
+  0.00%  1.2920us         1  1.2920us  1.2920us  1.2920us  cuEventCreate
+  0.00%  1.1840us         2     592ns     372ns     812ns  cuDeviceComputeCapability
+  0.00%     886ns         1     886ns     886ns     886ns  cuCtxSetCacheConfig
+  0.00%     761ns         2     380ns     328ns     433ns  cuDriverGetVersion
+  0.00%     734ns         3     244ns     159ns     405ns  cuDeviceGet
